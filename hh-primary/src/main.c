@@ -27,6 +27,8 @@
 /* Includes ------------------------------------------------------------------*/
 #include <alesi.h>
 
+#include "operation.h"
+
 /* Private typedef -----------------------------------------------------------*/
 
 /* Private define ------------------------------------------------------------*/
@@ -48,6 +50,15 @@ int main(void)
     Alesi_StatusTypeDef status;
 
     status = alesi_init();
+
+    if (status == ALESI_OK)
+	{
+    	Alesi_HandleTypeDef user_loop_h;
+
+    	user_loop_h = alesi_resolve_uri(":actor:user_loop");
+
+    	status = alesi_reg_loop(user_loop_h, operation_loop);
+	}
 
     if (status == ALESI_OK)
     {
