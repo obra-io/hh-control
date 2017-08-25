@@ -49,7 +49,7 @@ int main(void)
 {
     Alesi_StatusTypeDef status;
 
-    status = alesi_init();
+     status = alesi_init();
 
     if (status == ALESI_OK)
 	{
